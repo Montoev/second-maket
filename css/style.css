@@ -38,6 +38,7 @@ body {
   justify-content: space-between;
   width: 476px;
   padding: 5px 0 10px;
+  position: relative;
 }
 .header__search {
   display: flex;
@@ -56,7 +57,7 @@ body {
   width: 308px;
 }
 .header__nav {
-
+position: relative;
 }
 .header__nav-list {
   display: flex;
@@ -69,6 +70,194 @@ body {
   display: block;
   width: 100%;
   height: 100%;
+}
+.header__nav-active {
+  width: 211px;
+  height: 239px;
+  box-shadow: 0 4px 20px 0 rgba(51, 51, 51, 0.05);
+  background: #fffdf5;
+  position: absolute;
+  top: 49px;
+  right: 0;
+  z-index: 1;
+  display: none;
+}
+.nav-active__avatar {
+  margin: 18px auto 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+.nav-active__photo {
+  background: #c4c4c4;
+  border-radius: 100%;
+  width: 39px;
+  height: 39px;
+}
+.button {
+  width: 109px;
+  height: 26px;
+  border: 0.50px solid #514a7e;
+  background: transparent;
+  font-weight: 400;
+  font-size: 14px;
+  color: #121212;
+}
+.button:hover {
+  box-shadow: 0 4px 10px 0 rgba(81, 74, 126, 0.4);
+  background: #514a7e;
+  color: #fffdf5;
+  transition: all 0.3s;
+}
+.nav-active__list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.nav-active__item {
+  margin: 0 24px;
+  font-weight: 300;
+  font-size: 12px;
+  color: #121212;
+}
+.nav-active__item:nth-child(8) {
+  margin-bottom: -5px;
+}
+.nav-active__item:hover {
+  font-weight: 400;
+  font-size: 14px;
+  color: #514a7e;
+  transition: all 0.2s;
+}
+.nav-active__link {
+  display: flex;
+  gap: 11px;
+  height: 20px;
+  width: auto;
+  align-items: center;
+}
+.nav-active__item:first-child .nav-active__link {
+  align-items: flex-end;
+}
+.nav__item-line {
+  border: 0.50px solid #7d7d7d;
+  width: 211px;
+  height: 0px;
+}
+.header__enter {
+  width: 901px;
+  height: 463px;
+  z-index: 1;
+  background: #fffdf5;
+  position: absolute;
+  top: -48px;
+  left: -829px;
+  padding: 84px 113px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.header__enter-title {
+  position: relative;
+  margin-top: 53px;
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 0.87305;
+  color: #121212;
+  margin-bottom: 60px;
+}
+.header__enter-closed {
+  position: absolute;
+  top: 85px;
+  right: 113px; 
+}
+.closed {
+  width: 47px;
+  height: 47px;
+  border-radius: 100%;
+  background: #514a7e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px 0 rgba(81, 74, 126, 0.4);
+  transition: all 0.2s;
+}
+.closed:hover {
+  width: 56px;
+  height: 56px;
+}
+.closed:hover svg {
+  width: 23.83px;
+  height: 23.83px;
+}
+.header__enter-form {
+  max-width: 372px;
+  margin-bottom: 23px;
+}
+.header__enter-input {
+  display: flex;
+  flex-direction: column;
+  gap: 31px; 
+}
+.header__enter-input input {
+  background: transparent;
+  border-bottom: 0.50px solid #7d7d7d;
+  font-weight: 300;
+font-size: 16px;
+}
+
+.header__enter-errorpass {
+  margin-bottom: 25px;
+  font-weight: 300;
+font-size: 16px;
+color: #514a7e;
+}
+.header__enter-btns {
+  display: flex;
+  gap: 46px;
+}
+.header__enter-btn {
+  width: 149px;
+  height: 37px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header__enter-circle {
+  width: 429px;
+  height: 429px;
+  border: 1px solid #514a7e;
+  border-radius: 100%;
+  position: absolute;
+  top: 100%;
+  transform: translateY(-50%);
+  left: 733px;
+}
+.header__login {
+  width: 211px;
+  height: 381px;
+  position: absolute;
+  right: 114px;
+  z-index: 1;
+  box-shadow: 0 4px 20px 0 rgba(51, 51, 51, 0.05);
+  background: #fffdf5;
+}
+.nav-active__avatar-login {
+  gap: 6px;
+}
+.nav-active__name {
+  font-weight: 400;
+  font-size: 14px;
+  color: #121212;
+}
+.nav-active__list {
+}
+.nav-active__item {
+}
+.nav-active__link {
 }
 
 .header__hero {
@@ -110,8 +299,6 @@ margin-bottom: 60px;
   max-width: 249px;
   font-weight: 300;
 font-size: 16px;
-line-height: 1.18;
-color: #7d7d7d;
 }
 .hero__btn {
   width: 193px;
@@ -138,7 +325,7 @@ box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   background: #514a7e;
   color: #fffdf5;
   fill: #FFFDF5;
-  transition: all 0.4s;
+  transition: all 0.3s;
 }
 
 .circle {
