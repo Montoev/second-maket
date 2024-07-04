@@ -10,9 +10,108 @@ if (document.getElementById("hero__title-span")) {
   spanElement.innerHTML = 'Cocteil';
   }
 
+    (function () {
+      document.addEventListener('click', burgerInit)
+      const menuOpened = document.querySelector('.header__top-menu-active-bg')
+      menuOpened.addEventListener('click', burgerClosed)
+
+        function burgerInit(e) {
+          const burgerIcon = e.target.closest('.header__top-menu-img');
+          const burgerIconBottom = e.target.closest('.bottom__menu-link-burger');
+          const burgerNavLink = e.target.closest('.header__top-menu-link');
+          const img = document.querySelector('.hero__img-1');
+          const title = document.querySelector('.hero__title');
+          const text = document.querySelector('.hero__text');
+
+          if (!burgerIcon && !burgerNavLink && !burgerIconBottom) return
+          if (!document.body.classList.contains('body--opened-menu')) {
+            document.body.classList.add('body--opened-menu');
+            img.classList.add('hero__img-1-hidden');
+            title.classList.add('hero__title-hidden');
+            text.classList.add('hero__text-hidden');
+          } else {
+            document.body.classList.remove('body--opened-menu');
+            img.classList.remove('hero__img-1-hidden');
+            title.classList.remove('hero__title-hidden');
+            text.classList.remove('hero__text-hidden');
+        }
+        }
+
+        function burgerClosed(e) {
+          e.preventDefault()
+          const img = document.querySelector('.hero__img-1');
+          const title = document.querySelector('.hero__title');
+          const text = document.querySelector('.hero__text');
+
+          if (e.target.classList.contains('header__top-menu-active-bg')) {
+            document.body.classList.remove('body--opened-menu');
+            img.classList.remove('hero__img-1-hidden');
+            title.classList.remove('hero__title-hidden');
+            text.classList.remove('hero__text-hidden');
+        }
+          }
+    })();
+
+    (function () {
+      document.addEventListener('click', personInit)
+      const personOpened = document.querySelector('.header__top-person')
+      personOpened.addEventListener('click', personClosed)
+
+      function personInit(e) {
+        e.preventDefault()
+        const personIcon = e.target.closest('.header__nav-link-person')
+        const personMenuLink = e.target.closest('.person__menu-link')
+        const personBtn = e.target.closest('.person-btn')
+        const personIconBottom = e.target.closest('.bottom__menu-link-person')
+
+        if (!personIcon && !personMenuLink && !personBtn && !personIconBottom) return
+        if (!document.body.classList.contains('body--opened-person')) {
+          document.body.classList.add('body--opened-person');
+        } else {
+          document.body.classList.remove('body--opened-person');
+        }
+      }
+      function personClosed(e) {
+        e.preventDefault()
+        if (e.target.classList.contains('header__top-person')) {
+          document.body.classList.remove('body--opened-person');
+        }
+      }
+    })();
+
+    (function() {
+      document.addEventListener ('click', loginInit)
+      const loginOpened = document.querySelector('.header__top-login')
+      loginOpened.addEventListener('click', loginClosed)
+
+      function loginInit(e) {
+        e.preventDefault()
+        const loginBtn = e.target.closest('.person-btn')
+        
+
+        if (!loginBtn) return
+        if (!document.body.classList.contains('body--opened-login')) {
+          document.body.classList.add('body--opened-login');
+        } else {
+          document.body.classList.remove('body--opened-login');
+        }
+      };
+      function loginClosed(e) {
+        e.preventDefault()
+        const closedBtn = e.target.closest('.closed-btn')
+        const btns = e.target.closest('.login-btn')
+        const loginPass = e.target.closest('.login-pass')
+
+        if (e.target.classList.contains('header__top-login') || closedBtn || btns || loginPass) {
+          document.body.classList.remove('body--opened-login');
+        }
+      }
+    })();
+
   const swiperAbout = new Swiper('.about__slider', {
     spaceBetween: 30,
     slidesPerView: 2,
+    loop: true,
   
     navigation: {
       nextEl: '.about__next',
@@ -24,6 +123,7 @@ if (document.getElementById("hero__title-span")) {
   const swiperGallery = new Swiper('.gallery__slider', {
     spaceBetween: 80,
     slidesPerView: 2,
+    loop: true,
   
     navigation: {
       nextEl: '.gallery__next',
@@ -45,6 +145,7 @@ if (document.getElementById("hero__title-span")) {
   const swiperTestimonials = new Swiper('.testimonials__slider', {
     spaceBetween: 15,
     slidesPerView: 2,
+    loop: true,
   
     pagination: {
       el: '.testimonials-pagination',
@@ -107,11 +208,20 @@ if (document.getElementById("hero__title-span")) {
 
     el.addEventListener('click', (e) => {
 
+      const accordionList = e.currentTarget;
+      const accordionOpenedItem = accordionList.querySelector('.accordion-list__item--opened');
+      const accordionOpenedContent = accordionList.querySelector('.accordion-list__item--opened .accordion-list__content');
+
       const accordionControl = e.target.closest('.accordion-list__control');
       if (!accordionControl) return
       e.preventDefault()
       const accordionItem = accordionControl.parentElement;
       const accordionContent = accordionControl.nextElementSibling;
+
+      if (accordionOpenedItem && accordionItem != accordionOpenedItem) {
+        accordionOpenedItem.classList.remove('accordion-list__item--opened');
+        accordionOpenedContent.style.maxHeight = null;
+      }
 
       accordionItem.classList.toggle('accordion-list__item--opened');
 
