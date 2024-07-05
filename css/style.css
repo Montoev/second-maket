@@ -1437,6 +1437,7 @@ margin-bottom: 24.89px;
     background: var(--color-bg);
     height: 713px;
     overflow: hidden;
+    position: relative;
   }
   .header__login-mobile {
     display: flex;
@@ -1482,7 +1483,9 @@ margin-bottom: 24.89px;
     height: 196px;
     border: 1px solid var(--color-main);
     border-radius: var(--border-radius);
-    transform: translateX(279%) translateY(-434%);
+    position: absolute;
+    top: -112px;
+    right: -104px;
   }
 
   .header__top-active {
