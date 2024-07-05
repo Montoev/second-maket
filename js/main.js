@@ -129,17 +129,22 @@ if (document.getElementById("hero__title-span")) {
       nextEl: '.gallery__next',
       prevEl: '.gallery__prev',
     },
+
+    breakpoints: {
+      901: {
+        slidesPerView: 2,
+      }
+    },
+    breakpoints: {
+      1101: {
+        slidesPerView: 3,
+      }
+    },
     breakpoints: {
       1201: {
         slidesPerView: 4,
       }
     },
-    breakpoints: {
-      901: {
-        slidesPerView: 3,
-      }
-    },
-  
   });
 
   const swiperTestimonials = new Swiper('.testimonials__slider', {
