@@ -693,7 +693,7 @@ margin-bottom: 94px;
   position: relative;
 }
 .gallery__slide {
-  max-width: 278px;
+  width: auto;
 }
 .gallery__slide-img {
   max-height: 319px;

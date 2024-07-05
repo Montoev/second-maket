@@ -122,7 +122,7 @@ if (document.getElementById("hero__title-span")) {
 
   const swiperGallery = new Swiper('.gallery__slider', {
     spaceBetween: 80,
-    slidesPerView: 2,
+    slidesPerView: 'auto',
     loop: true,
   
     navigation: {
